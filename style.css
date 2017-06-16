@@ -1,0 +1,32 @@
+body {
+  text-align: center;
+  margin: 20px;
+}
+
+.hero {
+  border: 1px solid grey;
+  padding: 10px;
+  margin: 20px;
+  color: white;
+}
+
+img {
+  height: 300px;
+}
+
+ul {
+  list-style: none;
+}
+
+.heroDC {
+  background-color: red;
+}
+
+.heroMarvel {
+  background-color: blue;
+}
+
+
+/*li {
+  display: inline-block;
+}*/

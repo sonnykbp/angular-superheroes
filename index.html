@@ -1,12 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="heroesApp">
 <head>
   <meta charset="UTF-8">
   <title>Superhero Phone Book</title>
   <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
   <script src="app.js"></script>
+</head>
+<body ng-controller="HeroesController as vm">
+  <h1>Superhero Phone Book</h1>
+
+  <div>
+    Search Hero:
+    <input type="text" ng-model="vm.findHeroName">
+  </div>
+
+  <div class="hero" ng-repeat="hero in vm.heroes | filter: {name: vm.findHeroName}" ng-class="{'heroDC': hero.comic == 'DC', 'heroMarvel': hero.comic == 'Marvel'}">
+    <ul>
+      <li>Name: {{hero.name}}</li>
+      <li>Phone: {{hero.number}}</li>
+      <li>Comic Affliation: {{hero.comic}}</li>
+    </ul>
+    <button ng-click="vm.showHero()">Show</button>
+    <img src="{{hero.image_url}}" alt="heroes">
+  </div>
+
+
+  <!-- <div>
+    <form novalidate>
+      Title:<br>
+    <input type="text" ng-model="vm.newBookTitle"><br>
+      Author:<br>
+      <input type="text" ng-model="vm.newBookAuthor"><br>
+      Summary:<br>
+      <input type="text" ng-model="vm.newBookContent"><br>
+      Image:<br>
+      <input type="text" ng-model="vm.newBookImage"><br>
+    <button ng-click="vm.addBook()">Add Book</button>
+  </form>
+    <p>User input: {{vm.newBook}}</p>
+  </div> -->
 </body>
 </html>
